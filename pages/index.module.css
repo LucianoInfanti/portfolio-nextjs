@@ -1,0 +1,28 @@
+.text{
+	font-size: 40px;
+	letter-spacing: -1%;
+	line-height: 138%;
+	width: 65%;
+}
+
+.social {
+	margin-top: 20%;
+}
+
+.wrapper {
+	margin-left: 45%;
+	margin-top: 10%;
+	margin-right: 5%; /* devia ser 2% mas isso tá na frente do .circle */
+}
+
+.italic {
+	font-family: "AdobeGaramondItalic", sans-serif; 
+}
+
+.a {
+	margin-top: 10%;
+	height: 4000px;
+	margin-left: 45%;
+	margin-right: 2%;
+	
+}
