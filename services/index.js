@@ -1,17 +1,4 @@
-import Head from "next/head";
-import Header from "../components/home/Header";
-
 import { GraphQLClient, gql } from "graphql-request";
-
-const Writing = ({ posts }) => {
-  return (
-    <>
-      <p>{posts.title}</p>
-    </>
-  );
-};
-
-export default Writing;
 
 const url =
   "https://api-sa-east-1.hygraph.com/v2/cl8ds4bf023r101uecesx4gzm/master";
