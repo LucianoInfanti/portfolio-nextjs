@@ -1,9 +1,12 @@
-import Head from "next/head";
 import Header from "../components/home/Header";
-import { motion } from "framer-motion";
 import styles from "./index.module.css";
+import Head from "next/head";
 
-export default function Home() {
+import client from "../apolloClient";
+import { gql } from "@apollo/client";
+import Link from "next/link";
+
+export default function Home({ articles }) {
   return (
     <>
       <Head>
@@ -11,49 +14,65 @@ export default function Home() {
       </Head>
       <Header />
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ ease: "easeInOut", duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true }}
-        className={styles.wrapper}
-      >
-        <h1 className={styles.text}>
-          Designer and code enthuasiast based in São Paulo, Brazil currently at{" "}
-          <a href="https://work.co/" className={styles.italic}>
-            Work & Co
-          </a>
-        </h1>
-        <div className={styles.social}>
-          <a
-            target="blank"
-            href="https://www.linkedin.com/in/luciano-infanti/"
-            className="motionHover"
-          >
-            LinkedIn
-          </a>
-          <span className="separator">,</span>
-          <a
-            target="blank"
-            href="https://github.com/LucianoInfanti"
-            className="motionHover"
-          >
-            GitHub
-          </a>
-          <span className="separator">,</span>
-          <a
-            target="blank"
-            href="https://savee.it/lucianoinfanti/"
-            className="motionHover"
-          >
-            Savee
-          </a>
-        </div>
-      </motion.section>
+      <div className={styles.social}>
+        <a
+          className={styles.socialItem}
+          target="blank"
+          href="https://www.linkedin.com/in/luciano-infanti/"
+        >
+          LinkedIn
+        </a>
+        <span className={styles.span}>, </span>
+        <a
+          className={styles.socialItem}
+          target="blank"
+          href="https://github.com/LucianoInfanti"
+        >
+          GitHub
+        </a>
+        <span className={styles.span}>, </span>
+        <a
+          className={styles.socialItem}
+          target="blank"
+          href="https://savee.it/lucianoinfanti/"
+        >
+          Savee
+        </a>
+      </div>
 
-      <div className={styles.a}>
-        <img src="/images/img.png" />
+      <div className={styles.wrapper}>
+        <div className={styles.articleWrapper}>
+          {articles.map((article) => (
+            <li key={article.id} className={styles.articleItem}>
+              <Link href={`/${article.slug}`}>{article.title}</Link>
+              {/* <span className={styles.date}>{article.date}</span> */}
+            </li>
+          ))}
+          {/* {articles.length > 3 && <div className={styles.spacer}></div>} */}
+        </div>
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: gql`
+      query Articles {
+        articles {
+          id
+          date
+          slug
+          title
+        }
+      }
+    `,
+  });
+
+  const { articles } = data;
+  return {
+    props: {
+      articles,
+    },
+  };
 }

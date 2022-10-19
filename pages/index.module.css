@@ -1,28 +1,54 @@
-.text{
-	font-size: 40px;
-	letter-spacing: -1%;
-	line-height: 138%;
-	width: 65%;
-}
+
 
 .social {
-	margin-top: 20%;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+}
+
+.socialItem {
+    opacity: 0.5;
+}
+
+.socialItem:hover {
+    opacity: 1;
 }
 
 .wrapper {
-	margin-left: 45%;
-	margin-top: 10%;
-	margin-right: 5%; /* devia ser 2% mas isso tá na frente do .circle */
+    margin-left: 2%;
+    margin-bottom: 2%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 50%;
+
+}
+
+.articleItem:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.articleItem {
+    opacity: 0.5;
+    margin-bottom: 8px;
+
 }
 
 .italic {
-	font-family: "AdobeGaramondItalic", sans-serif; 
+    background-color: tomato;
 }
 
+/* 
 .a {
-	margin-top: 10%;
-	height: 4000px;
-	margin-left: 45%;
-	margin-right: 2%;
-	
+    margin-top: 10%;
+    height: 4000px;
+    margin-left: 45%;
+    margin-right: 2%;
+
+} */
+
+.span {
+    opacity: 0.3;
 }

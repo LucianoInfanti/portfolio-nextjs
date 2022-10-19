@@ -1,33 +1,17 @@
 import { motion } from "framer-motion";
 
-import Head from "next/head";
 import styles from "./header.module.css";
 import Link from "next/link";
 
 const Header = () => {
   return (
-    <motion.nav
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.8 }}
-      viewport={{ once: true }}
-      className={styles.nav}
-    >
+    <motion.nav className={styles.nav}>
       <div className={styles.logo}>
         <Link href="/">Luciano Infanti</Link>
-      </div>
-
-      <div className={styles.menu}>
-        <div className={styles.item}>
-          <Link href="/writing" className={styles.item}>
-            Writing
-          </Link>
-        </div>
-        <div className={styles.item}>
-          <Link href="/about" className={styles.item}>
-            About
-          </Link>
-        </div>
+        <br></br> Designer at{" "}
+        <a href="https://work.co/" className={styles.italic}>
+          Work & Co
+        </a>
       </div>
 
       <motion.div
@@ -40,3 +24,8 @@ const Header = () => {
 };
 
 export default Header;
+
+// initial={{ opacity: 0 }}
+// whileInView={{ opacity: 1 }}
+// transition={{ ease: "easeInOut", duration: 0.8 }}
+// viewport={{ once: true }}
