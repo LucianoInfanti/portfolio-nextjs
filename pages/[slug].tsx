@@ -3,7 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import Header from "../components/home/Header";
 
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
+const client = new GraphQLClient(process.env.VALUE);
 
 interface IArticle {
   id: string;
@@ -24,18 +24,6 @@ interface IArticle {
 }
 
 export default function Article({ article }) {
-  // console.log(article.reference);
-  const arr = article.reference;
-
-  const resultado = arr.map((article) => {
-    <div>
-      <div>{article.id}</div>
-      <div>[{article.number}]</div>
-      <div dangerouslySetInnerHTML={{ __html: article.link.html }}></div>
-    </div>;
-
-    console.log(article);
-  });
   return (
     <>
       <Header />
@@ -48,7 +36,6 @@ export default function Article({ article }) {
           </div>
           <img src={article.coverImage.url} alt={article.title} />
           <div dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
-          {/* <div > <MDXRemote {...article.source}/> </div> */}
         </article>
 
         {article.reference.length > 0 && (

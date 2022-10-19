@@ -23,15 +23,12 @@ Incremental progress is how I'm tackling this challenge. So there will always be
 
 - Make `<Header>` dissapear when the list is too big and the user scrolls down the page
 - Make sure the article list will behave fine when there are multiplie blog entries
-- Create a `:hover` styling rule for only specific `<a>` elements
-- Stop re-rendering between pages by studying `React Router`
 - Mobile & responsiviness with `clamp()` and similar functions
 - Take a pass at all animations and standardize motion tokens
-- Create the article `<Image/>` component and its variations
 - Figure it out how to render `.mp4` files on web
 - Light/Mode Mode
 
-## Future Updates
+## (Possible) Future Updates
 
 - Cooler hover for images inside the article
 - Like counter for posts, if possible (most likely not without Next.js)
@@ -39,22 +36,3 @@ Incremental progress is how I'm tackling this challenge. So there will always be
 - Add About page
 - Add Work page
 - Use `{children}` to make sure I can use the `<AnimatedText/>` component
-
-## Done
-
-- Figure it out how to render the Hygraph Component in `[slug].tsx`
-- Remove the `<Keepreading/>` component?
-- "Active Route" trought React Router (possibly using `<NavLink>`)
-- When start to scroll hide 'Writing'
-- Review the z-index in the article page
-- Delete About Page
-- Important: CSS Revamp
-- Delete Writing Page
-- Review the stagger animation, it looks wrong, the timmings are most likely off
-- Find a hook to avoid rendering `<Header/>` multiple times
-- Remove the staggered animation at /Writing and use only a fade
-- Add https://codesandbox.io/s/ro92c5?file=/fragmentShader.js&from-sandpack=true
-- In prod: investigate weird routing realods
-- Home and Writing have different font sizes
-- Progress scroll bar?
-- Add `<NavLink/>` as a `prop` to the header component so I can remove it from the article page (?)
