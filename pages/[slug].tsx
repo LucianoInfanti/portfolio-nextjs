@@ -4,15 +4,17 @@ import { serialize } from "next-mdx-remote/serialize";
 import Header from "../components/home/Header";
 
 //Production
-const client = new GraphQLClient(process.env.VALUE);
+// const client = new GraphQLClient(process.env.VALUE);
 
 //Working local
-// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_UR);
+const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_UR);
 
 interface IArticle {
+  articles: any;
   id: string;
   slug: string;
   title: string;
+  date: string;
   content: {
     raw: string;
     html: string;
@@ -22,12 +24,16 @@ interface IArticle {
     url: string;
   };
   reference: {
-    ref: string;
     id: string;
-  };
+    link: {
+      html: string;
+    };
+    number: string;
+  }[];
+  source: string;
 }
 
-export default function Article({ article }) {
+export default function Article({ article }: { article: IArticle }) {
   return (
     <>
       <Header />
@@ -115,7 +121,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     }
   `;
-  const data = await client.request(query);
+  const data: IArticle = await client.request(query);
   return {
     paths: data.articles.map((post) => ({ params: { slug: post.slug } })),
     fallback: "blocking",
