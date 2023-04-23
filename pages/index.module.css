@@ -16,8 +16,7 @@
 
 .wrapper {
     margin-left: 2%;
-    margin-bottom: 2%;
-    height: 100vh;
+    height: calc(100vh - 40px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

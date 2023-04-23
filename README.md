@@ -22,7 +22,9 @@ There are definitely bugs and undesired behaviors. This is a non exaustive list 
 Incremental progress is how I'm tackling this challenge. So there will always be something to do. An animation to polish, a better code to write, a new technology to try. So far, this is what I'm planning to do next, in no particular order.
 
 - Make `<Header>` dissapear when the list is too big and the user scrolls down the page
+- Implement `BEM`
 - Make sure the article list will behave fine when there are multiplie blog entries
+- Invert the article order
 - Mobile & responsiviness with `clamp()` and similar functions
 - Take a pass at all animations and standardize motion tokens
 - Figure it out how to render `.mp4` files on web
