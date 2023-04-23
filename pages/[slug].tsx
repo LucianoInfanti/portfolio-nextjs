@@ -4,10 +4,10 @@ import { serialize } from "next-mdx-remote/serialize";
 import Header from "../components/home/Header";
 
 //Production
-// const client = new GraphQLClient(process.env.VALUE);  
+const client = new GraphQLClient(process.env.VALUE);
 
 //Working local
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_UR);
+// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_UR);
 
 interface IArticle {
   id: string;
@@ -64,7 +64,6 @@ export default function Article({ article }) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  
   const slug = params.slug as string;
 
   const query = gql`
