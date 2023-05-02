@@ -1,51 +1,8 @@
-.social {
-    position: fixed;
-    bottom: 2%;
-    right: 2%;
-}
-
-.socialItem {
-    opacity: 0.5;
-}
-
-.socialItem:hover {
-    opacity: 1;
-}
-
-.wrapper {
-    margin-left: 2%;
-    height: calc(100vh - 40px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 50%;
-
-}
-
-.articleItem:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.articleItem {
-    opacity: 0.5;
-    margin-bottom: 8px;
-
-}
-
-.italic {
-    background-color: tomato;
-}
-
-/* 
-.a {
-    margin-top: 10%;
-    height: 4000px;
-    margin-left: 45%;
-    margin-right: 2%;
-
-} */
-
-.span {
-    opacity: 0.3;
+.introduction {
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+	font-size: 48px;
+	width: 750px;
+	text-indent: 170px;
 }

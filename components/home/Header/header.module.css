@@ -1,0 +1,11 @@
+.menuWrapper {
+  justify-content: space-between;
+  display: flex;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.span {
+  opacity: 0.3;
+}

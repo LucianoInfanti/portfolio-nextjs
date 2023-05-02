@@ -1,13 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
-import Header from "../components/home/Header";
+import Header from "../components/home/Header/Header";
 
-//Production
-const client = new GraphQLClient(process.env.VALUE);
+//Production (NOT WORKING)
+// const client = new GraphQLClient(process.env.VALUE);
 
-//Working local
-// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_UR);
+// Development: make sure `NEXT_PUBLIC_GRAPHCMS_URL` is written as in `.env.local`
+const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 interface IArticle {
   articles: any;

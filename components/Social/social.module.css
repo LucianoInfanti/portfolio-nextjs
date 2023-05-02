@@ -1,0 +1,24 @@
+.social {
+	position: fixed;
+	bottom: 2%;
+	right: 2%;
+  }
+  
+  .wrapper {
+	margin-left: 2%;
+	height: calc(100vh - 40px);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 50%;
+  }
+  
+  .articleItem:hover {
+	opacity: 1;
+	cursor: pointer;
+  }
+  
+  .span {
+	opacity: 0.3;
+  }
+  
