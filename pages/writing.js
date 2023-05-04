@@ -1,5 +1,5 @@
 import Header from "../components/home/Header/Header";
-import Social from "../components/social/Social";
+import Social from "components/Social/Social.js";
 import styles from "./writing.module.css";
 import { motion } from "framer-motion";
 import client from "../apolloClient";

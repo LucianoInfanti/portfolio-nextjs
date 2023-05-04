@@ -11,7 +11,7 @@ const Password = () => {
   return (
     <div>
       <Header />
-      <Social />
+      <Social/>
 
       <div className={styles.workWrapper}>
         <div className={styles.work}>
