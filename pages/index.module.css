@@ -1,8 +1,15 @@
 .introduction {
 	position: absolute;
-	bottom: 2%;
-	left: 2%;
+	top: 40%;
+	left: 4%;
 	font-size: 48px;
-	width: 750px;
-	text-indent: 170px;
+	width: 500px;
+	font-family: Migra-Extralight, serif;
+	text-decoration: none;
+}
+
+
+.introduction a {
+	font-family: Migra-Extralight-Italic, serif;
+
 }

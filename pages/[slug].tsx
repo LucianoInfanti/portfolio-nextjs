@@ -2,12 +2,16 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import Header from "../components/home/Header/Header";
+import Head from "next/head";
+
+import styles from "./slug.module.css";
+import Social from "../components/Social/Social";
 
 //Production (NOT WORKING)
-// const client = new GraphQLClient(process.env.VALUE);
+const client = new GraphQLClient(process.env.VALUE);
 
 // Development: make sure `NEXT_PUBLIC_GRAPHCMS_URL` is written as in `.env.local`
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
+// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 interface IArticle {
   articles: any;
@@ -36,29 +40,36 @@ interface IArticle {
 export default function Article({ article }: { article: IArticle }) {
   return (
     <>
+      {" "}
+      <Head>
+        <title>Luciano Infanti</title>
+      </Head>
       <Header />
-
-      <div className="wrapper">
+      <Social />
+      <div className={styles.wrapper}>
         <article>
-          <div className="title">
+          <div className={styles.title}>
             <h1>{article.title}</h1>
-            <div className="date">Published · {article.date}</div>
+            <div className={styles.date}>Published · {article.date}</div>
           </div>
-          <img src={article.coverImage.url} alt={article.title} />
-          <div dangerouslySetInnerHTML={{ __html: article.content.html }}></div>
+          <img className={styles.img} src={article.coverImage.url} alt={article.title} />
+          <div
+            className={styles.paragraph}
+            dangerouslySetInnerHTML={{ __html: article.content.html }}
+          ></div>
         </article>
 
         {article.reference.length > 0 && (
           <>
             <div className="divider"></div>
-            <h3 className="refTitle">References</h3>
+            <h3 className={styles.referenceTitle}>References</h3>
           </>
         )}
         {article.reference.map((article) => (
-          <div key={article.id} className="refItem">
-            <div className="refNumber">[{article.number}]</div>
+          <div key={article.id} className={styles.referenceItem}>
+            {/* <div className={styles.refNumber}>[{article.number}]</div> */}
             <div
-              className="refLink"
+              className={styles.refLink}
               dangerouslySetInnerHTML={{ __html: article.link.html }}
             ></div>
           </div>

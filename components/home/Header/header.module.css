@@ -1,11 +1,22 @@
 .menuWrapper {
-  justify-content: space-between;
   display: flex;
-  margin-top: 2%;
-  margin-left: 2%;
-  margin-right: 2%;
+  margin-left: 4%;
+  position: fixed;
+
 }
 
 .span {
   opacity: 0.3;
+}
+
+.linkWrapper{
+  right: 4%;
+  position: fixed;
+}
+
+.nav{
+  display: flex;
+  margin-top: 4%;
+  justify-content: space-between;
+  
 }

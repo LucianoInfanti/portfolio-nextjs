@@ -1,11 +1,11 @@
 .social {
 	position: fixed;
-	bottom: 2%;
-	right: 2%;
+	bottom: 4%;
+	right: 4%;
   }
   
   .wrapper {
-	margin-left: 2%;
+	margin-left: 4%;
 	height: calc(100vh - 40px);
 	display: flex;
 	flex-direction: column;

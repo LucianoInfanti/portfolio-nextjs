@@ -1,13 +1,11 @@
 import Header from "../components/home/Header/Header";
 import Social from "../components/social/Social";
-import styles from "./index.module.css";
-import Head from "next/head";
-
+import styles from "./writing.module.css";
+import { motion } from "framer-motion";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
+import Head from "next/head";
 import Link from "next/link";
-
-import { motion } from "framer-motion";
 
 export default function Home({ articles }) {
   return (
@@ -17,25 +15,20 @@ export default function Home({ articles }) {
       </Head>
 
       <Header />
-      <Social/>
+      <Social />
 
       <div className={styles.wrapper}>
+        <h1 className={styles.writingTitle}>Random pieces on design, coding and whatever comes to mind</h1>
         <div className={styles.articleWrapper}>
-          {articles.map((article) => (
+          {articles.map((article, index) => (
             <li key={article.id} className={styles.articleItem}>
+              {/* <div className={styles.articleNumber}>{`0${index + 1}`}</div> */}
+ 
               <Link href={`/${article.slug}`}>{article.title}</Link>
             </li>
           ))}
         </div>
       </div>
-
-      <motion.nav className={styles.nav}>
-        <br /> Designer and code enthusiast based in São Paulo, Brazil @
-        <a href="https://work.co/" className={styles.italic}>
-          Work & Co
-        </a>
-        .
-      </motion.nav>
     </>
   );
 }

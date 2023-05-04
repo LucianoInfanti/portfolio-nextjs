@@ -1,4 +1,8 @@
 import { useRouter } from "next/router";
+import Header from "../components/home/Header/Header";
+import Social from "../components/Social/Social";
+
+import styles from "./work.module.css";
 
 const Password = () => {
   const router = useRouter();
@@ -6,17 +10,29 @@ const Password = () => {
 
   return (
     <div>
-      <h1>This Page is Under Development... </h1>
+      <Header />
+      <Social />
 
-      <p>Enter Password:</p>
-      <form action="/api/password-protected" method="post">
-        <input type="text" name="password" />
-        <button>Login</button>
-        {error && (
-         
-            <span className="label-text text-error">{error}</span>
-        )}
-      </form>
+      <div className={styles.workWrapper}>
+        <div className={styles.work}>
+          {/* <h1>Access denied</h1> */}
+          <form
+            className={styles.form}
+            action="/api/password-protected"
+            method="post"
+          >
+            <input
+              autoFocus
+              className={styles.input}
+              type="text"
+              name="password"
+              placeholder="Enter password"
+            />
+            <button className={styles.btn}>Submit</button>
+            {error && <span className={styles.error}>{error}</span>}
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
