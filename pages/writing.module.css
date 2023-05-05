@@ -9,16 +9,23 @@
 .articleItem{
 	font-family: Migra-Extralight, serif;
 	font-size: 24px;
-	padding-bottom: 12px;
+	margin-bottom: 12px;
 }
 
-/* .articleItem:hover{
-	font-family: Migra-Extralight-Italic, serif;
-} */
-	
 .writingTitle {
 	font-family: Migra-Extralight, serif;
 	font-size: 48px;
 	max-width: 650px;
 	margin-bottom: 120px;
+}
+
+.pageTitle{
+	margin-bottom: 4rem;
+}
+
+.articleItem:hover {
+	opacity: 1 !important;
+}
+.articleWrapper:hover > .articleItem{
+	opacity: 0.3;
 }

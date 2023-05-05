@@ -1,7 +1,7 @@
 .menuWrapper {
   display: flex;
   margin-left: 4%;
-  position: fixed;
+  /* position: fixed; */
 
 }
 
@@ -10,8 +10,9 @@
 }
 
 .linkWrapper{
-  right: 4%;
-  position: fixed;
+  margin-right: 4%;
+
+  /* position: fixed; */
 }
 
 .nav{

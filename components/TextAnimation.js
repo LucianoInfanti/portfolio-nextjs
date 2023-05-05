@@ -1,8 +1,7 @@
-import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const AnimatedTextWord = ({ text, props }) => {
-  const words = text.split(" ");
+const AnimatedTextWord = ({ text }) => {
+  const words = text.split("");
 
   const container = {
     hidden: { opacity: 0 },

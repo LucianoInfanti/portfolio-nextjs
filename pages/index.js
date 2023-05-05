@@ -3,6 +3,7 @@ import Social from "../components/Social/Social";
 import styles from "./index.module.css";
 import Head from "next/head";
 import AnimatedTextWord from "./AnimatedTextWords";
+import { AnimatePresence } from "framer-motion";
 
 
 export default function Home() {
@@ -12,17 +13,18 @@ export default function Home() {
         <title>Luciano Infanti</title>
       </Head>
 
-      <Header />
-      <Social />
 
       <div className={styles.introduction}>
-      {/* <AnimatedTextWord text={"Designer and code enthusiast at Work & Co"}/> */}
-        <p>
+      <AnimatePresence exitBeforeEnter>
+        <AnimatedTextWord text="Designer and code"/>
+        <AnimatedTextWord text=" enthusiast at Work & Co"/>
+      </AnimatePresence>
+        {/* <p>
           Designer and code enthusiast at{" "}
           <a href="https://work.co/" target="blank">
             Work & Co
           </a>
-        </p>
+        </p> */}
       </div>
     </div>
   );

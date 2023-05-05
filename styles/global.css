@@ -91,9 +91,13 @@ a:active {
 
 }
 
-a:hover {
+a:not(li a):hover {
   color: black;
   opacity: 0.4;
+}
+
+.articleItem:hover {
+  opacity: 1;
 }
 
 /*
@@ -170,7 +174,7 @@ p ~ p {
 }
 
 code { 
-  font-size: 18px;
+  font-size: 17px;
   padding: 4px;
   border-radius: 6px;
   border: solid #D0D5E6 1px;

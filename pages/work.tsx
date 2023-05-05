@@ -10,9 +10,6 @@ const Password = () => {
 
   return (
     <div>
-      <Header />
-      <Social/>
-
       <div className={styles.workWrapper}>
         <div className={styles.work}>
           {/* <h1>Access denied</h1> */}

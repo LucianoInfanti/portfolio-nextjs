@@ -1,7 +1,6 @@
 .title{
 	font-family: Migra-Extralight, serif;
 	font-size: 32px;
-	max-width: 650px;
 	margin-left: 4%;
 }
 
@@ -12,7 +11,7 @@
 }
 
 .wrapper{
-	margin-top: 17%;
+	margin-top: 16%;
 }
 
 .img {
@@ -26,10 +25,11 @@
 	text-indent: 1.5em;
 	margin-left: 4%;
     max-width: 600px;
+	letter-spacing: 0.1px;
     margin-top: 40px;
 	font-family: NHassGrotesk-Display-Light, sans-serif;
-	line-height: 38px;
-	font-size: 24px;
+	line-height: 32px;
+	font-size: 21px;
 }
 
 .referenceTitle {

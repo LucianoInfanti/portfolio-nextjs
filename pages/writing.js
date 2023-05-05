@@ -6,6 +6,7 @@ import client from "../apolloClient";
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
+import AnimatedTextWord from "./AnimatedTextWords";
 
 export default function Home({ articles }) {
   return (
@@ -14,17 +15,19 @@ export default function Home({ articles }) {
         <title>Luciano Infanti</title>
       </Head>
 
-      <Header />
-      <Social />
 
       <div className={styles.wrapper}>
-        <h1 className={styles.writingTitle}>Random pieces on design, coding and whatever comes to mind</h1>
+        <div className={styles.pageTitle}>
+          <AnimatedTextWord text="Random pieces on design, coding " />
+          <AnimatedTextWord text="and whatever comes to mind" />
+        </div>
         <div className={styles.articleWrapper}>
           {articles.map((article, index) => (
             <li key={article.id} className={styles.articleItem}>
               {/* <div className={styles.articleNumber}>{`0${index + 1}`}</div> */}
- 
-              <Link href={`/${article.slug}`}>{article.title}</Link>
+              <a href={`/${article.slug}`}>
+                <AnimatedTextWord text={article.title} />
+              </a>
             </li>
           ))}
         </div>
