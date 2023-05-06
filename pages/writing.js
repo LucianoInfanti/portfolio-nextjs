@@ -3,7 +3,6 @@ import client from "../apolloClient";
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
-import AnimatedTextWord from "./AnimatedTextWords";
 import { motion } from "framer-motion";
 
 export default function Home({ articles }) {

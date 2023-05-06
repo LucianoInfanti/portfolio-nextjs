@@ -1,6 +1,5 @@
 import styles from "./index.module.css";
 import Head from "next/head";
-import AnimatedTextWord from "./AnimatedTextWords";
 import { motion } from "framer-motion";
 
 export default function Home() {

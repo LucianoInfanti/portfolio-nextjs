@@ -186,3 +186,7 @@ code {
 p a:link {
 	font-family: Migra-Extralight-Italic, serif;
 }
+
+p ~ img {
+  margin-top: 40px;
+}

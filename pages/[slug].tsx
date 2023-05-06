@@ -5,13 +5,10 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 
 import styles from "./slug.module.css";
-import AnimatedTextWord from "./AnimatedTextWords";
+import AnimatedTextWord from "../components/AnimatedTextWords";
 
-//Production (NOT WORKING)
-// const client = new GraphQLClient(process.env.VALUE);
+ const client = new GraphQLClient(process.env.VALUE);
 
-// Development: make sure `NEXT_PUBLIC_GRAPHCMS_URL` is written as in `.env.local`
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 interface IArticle {
   articles: any;
@@ -52,36 +49,13 @@ export default function Article({ article }: { article: IArticle }) {
             </motion.h1>
             <div className={styles.date}>Published · {article.date}</div>
           </div>
-          <img
-            className={styles.img}
-            src={article.coverImage.url}
-            alt={article.title}
-          />
-          <motion.div
-            className={styles.paragraph}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ ease: "easeInOut", duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+         
+          <motion.div className={styles.paragraph}>
             <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
           </motion.div>
         </article>
 
-        {article.reference.length > 0 && (
-          <>
-            <div className="divider"></div>
-            <h3 className={styles.referenceTitle}>References</h3>
-          </>
-        )}
-        {article.reference.map((article) => (
-          <div key={article.id} className={styles.referenceItem}>
-            <div
-              className={styles.refLink}
-              dangerouslySetInnerHTML={{ __html: article.link.html }}
-            ></div>
-          </div>
-        ))}
+      
       </div>
       <div className="spacer"></div>
     </>
