@@ -41,17 +41,14 @@
 
 .refLink{
 	font-size: 24px;
-	padding-bottom: 6px;
+	padding-bottom: 6px;	font-family: NHassGrotesk-Display-Light, serif !important;
+
 }
 
 .referenceItem{
 	display: flex;
 	margin-left: 4%;
-	text-align: left;
-}
+	font-family: NHassGrotesk-Display-Light, sans-serif;
 
-.refNumber{
-	font-size: 24px;
-	font-family: Migra-Extralight, serif;
-	margin-right: 12px;
+	text-align: left;
 }

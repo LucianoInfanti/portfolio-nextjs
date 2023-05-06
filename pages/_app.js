@@ -9,7 +9,8 @@ export default function App({ Component, pageProps, router }) {
     <>
     <Header/>
     <Social/>
-    <AnimatePresence initial={false} exitBeforeEnter>
+    {/* initial={false} ADD BEFORE DEPLOYING */}
+    <AnimatePresence  exitBeforeEnter>
       <motion.div
         key={router.pathname}
         initial="initialState"
@@ -27,8 +28,8 @@ export default function App({ Component, pageProps, router }) {
           },
         }}
         transition={{
-          duration: 0.5, // set the duration of the animation
-          ease: "easeInOut", // set the easing function for the animation
+          duration: 0.5, 
+          ease: "easeInOut", 
         }}
       >
         <Component {...pageProps} />

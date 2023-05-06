@@ -1,34 +1,54 @@
-import Header from "../components/home/Header/Header";
-import Social from "components/Social/Social.js";
 import styles from "./writing.module.css";
-import { motion } from "framer-motion";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
 import Head from "next/head";
 import Link from "next/link";
 import AnimatedTextWord from "./AnimatedTextWords";
+import { motion } from "framer-motion";
 
 export default function Home({ articles }) {
+  const articleVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
+
   return (
     <>
       <Head>
         <title>Luciano Infanti</title>
       </Head>
 
-
       <div className={styles.wrapper}>
         <div className={styles.pageTitle}>
-          <AnimatedTextWord text="Random pieces on design, coding " />
-          <AnimatedTextWord text="and whatever comes to mind" />
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            Random pieces on design, coding
+            <br />
+            and whatever comes to mind
+          </motion.p>
         </div>
         <div className={styles.articleWrapper}>
           {articles.map((article, index) => (
-            <li key={article.id} className={styles.articleItem}>
-              {/* <div className={styles.articleNumber}>{`0${index + 1}`}</div> */}
-              <a href={`/${article.slug}`}>
-                <AnimatedTextWord text={article.title} />
-              </a>
-            </li>
+            <motion.li
+              key={article.id}
+              className={styles.articleItem}
+              variants={itemVariants}
+            >
+              <motion.div
+                variants={articleVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <Link href={`/${article.slug}`}>{article.title}</Link>
+              </motion.div>
+            </motion.li>
           ))}
         </div>
       </div>

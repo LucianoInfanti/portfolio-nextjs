@@ -1,11 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
-import Header from "../components/home/Header/Header";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 import styles from "./slug.module.css";
-import Social from "../components/Social/Social";
 import AnimatedTextWord from "./AnimatedTextWords";
 
 //Production (NOT WORKING)
@@ -45,13 +44,12 @@ export default function Article({ article }: { article: IArticle }) {
       <Head>
         <title>Luciano Infanti</title>
       </Head>
-
       <div className={styles.wrapper}>
         <article>
           <div className={styles.title}>
-            <h1>
-              <AnimatedTextWord text={article.title} />
-            </h1>
+            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              {article.title}
+            </motion.h1>
             <div className={styles.date}>Published · {article.date}</div>
           </div>
           <img
@@ -59,10 +57,15 @@ export default function Article({ article }: { article: IArticle }) {
             src={article.coverImage.url}
             alt={article.title}
           />
-          <div
+          <motion.div
             className={styles.paragraph}
-            dangerouslySetInnerHTML={{ __html: article.content.html }}
-          ></div>
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ ease: "easeInOut", duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
+          </motion.div>
         </article>
 
         {article.reference.length > 0 && (

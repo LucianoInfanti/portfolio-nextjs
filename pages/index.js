@@ -1,10 +1,7 @@
-import Header from "../components/home/Header/Header";
-import Social from "../components/Social/Social";
 import styles from "./index.module.css";
 import Head from "next/head";
 import AnimatedTextWord from "./AnimatedTextWords";
-import { AnimatePresence } from "framer-motion";
-
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -13,18 +10,13 @@ export default function Home() {
         <title>Luciano Infanti</title>
       </Head>
 
-
       <div className={styles.introduction}>
-      <AnimatePresence exitBeforeEnter>
-        <AnimatedTextWord text="Designer and code"/>
-        <AnimatedTextWord text=" enthusiast at Work & Co"/>
-      </AnimatePresence>
-        {/* <p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           Designer and code enthusiast at{" "}
           <a href="https://work.co/" target="blank">
             Work & Co
           </a>
-        </p> */}
+        </motion.p>
       </div>
     </div>
   );

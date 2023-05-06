@@ -59,3 +59,5 @@ const AnimatedTextWord = ({ text, props }) => {
 };
 
 export default AnimatedTextWord;
+
+
