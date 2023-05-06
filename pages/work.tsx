@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import Header from "../components/home/Header/Header";
-import Social from "../components/Social/Social";
+
 
 import styles from "./work.module.css";
 

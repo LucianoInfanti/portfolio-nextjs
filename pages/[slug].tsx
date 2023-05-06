@@ -5,7 +5,6 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 
 import styles from "./slug.module.css";
-import AnimatedTextWord from "../components/AnimatedTextWords";
 
 //Production (NOT WORKING)
 const client = new GraphQLClient(process.env.VALUE);
