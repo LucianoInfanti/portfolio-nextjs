@@ -1,6 +1,6 @@
 import "../styles/global.css";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../components/Header/Header";
+import Header from "../components/home/Header/Header";
 import Social from "../components/Social/Social";
 
 export default function App({ Component, pageProps, router }) {
@@ -8,7 +8,7 @@ export default function App({ Component, pageProps, router }) {
     <>
       <Header />
       <Social />
-     
+
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={router.pathname}

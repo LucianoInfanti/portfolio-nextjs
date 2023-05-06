@@ -1,4 +1,4 @@
-import Header from "../components/Header/Header";
+import Header from "../components/home/Header/Header";
 import Social from "../components/Social/Social";
 
 import styles from "./fullwork.module.css";
