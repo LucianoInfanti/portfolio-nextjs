@@ -14,14 +14,14 @@ There are definitely bugs and undesired behaviors. This is a non exaustive list 
 
 Incremental progress is how I'm tackling this challenge. So there will always be something to do. An animation to polish, a better code to write, a new technology to try. So far, this is what I'm planning to do next, in no particular order.
 
-- Implement `BEM`
-- Add a `highlight` class that creates a highlight element for text paragraphs
-- Mobile & responsiviness with `clamp()` and similar functions
-- Take a pass at all animations and standardize motion tokens
-- Add a quote styling
-- Add a `Home` link to the end of every article and a randomized 'Read more'
-- Add Smoth Scroll (https://www.youtube.com/watch?v=x5yvDlH7X9A)
-- Add a smooth fade in for every `<p>` elements within `[slug].tsx`. Refer to previous project
+- Implement `BEM` methodology
+- Create a `highlight` class for adding a highlight element to text paragraphs
+- Ensure mobile responsiveness using `clamp()` and similar functions
+- Standardize motion tokens by reviewing and refining all animations
+- Design a styling for quotes
+- Append a `Home` link at the end of each article along with a random 'Read more' suggestion
+- Incorporate Smooth Scroll (https://www.youtube.com/watch?v=x5yvDlH7X9A)
+- Correct the y-position of the title in `[slug].js`
 
 ## (Possible) Future Updates
 

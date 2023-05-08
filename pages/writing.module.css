@@ -24,10 +24,3 @@
 	font-family: Migra-Extralight, serif;
 
 }
-
-.articleItem:hover {
-	opacity: 1 !important;
-}
-.articleWrapper:hover > .articleItem{
-	opacity: 0.3;
-}

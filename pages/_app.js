@@ -1,13 +1,12 @@
 import "../styles/global.css";
 import { motion, AnimatePresence } from "framer-motion";
-import Header from "../components/home/Header/Header";
 import Social from "../components/Social/Social";
 
 export default function App({ Component, pageProps, router }) {
   return (
     <>
-      <Header />
-      <Social />
+      {/* 
+      <Social /> */}
 
       <AnimatePresence exitBeforeEnter>
         <motion.div

@@ -1,5 +1,4 @@
-.title{
-	font-family: Migra-Extralight, serif;
+/* .title{
 	font-size: 32px;
 	max-width: 600px;
 
@@ -9,7 +8,6 @@
 .date {
 	font-size: 16px;
 	opacity: 0.4;
-	font-family: NHassGrotesk-Display-Light, sans-serif;
 }
 
 .wrapper{
@@ -26,10 +24,13 @@
 .paragraph {
 	text-indent: 24px;
 	margin-left: 4%;
-    max-width: 600px;
+    max-width: 50%;
 	letter-spacing: 0.1px;
     margin-top: 40px;
-	font-family: NHassGrotesk-Display-Light, sans-serif;
 	line-height: 32px;
 	font-size: 21px;
 }
+
+.float-img{
+	position: absolute;
+} */
