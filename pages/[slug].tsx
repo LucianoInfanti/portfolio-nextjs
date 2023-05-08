@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 
 import styles from "./slug.module.css";
 
-// const client = new GraphQLClient(process.env.VALUE); //Production env
+const client = new GraphQLClient(process.env.VALUE); //Production env
 
 
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL); 
+// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL); 
 
 interface IArticle {
   articles: any;
