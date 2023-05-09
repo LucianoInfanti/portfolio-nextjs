@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function App({ Component, pageProps, router }) {
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <motion.div
           key={router.pathname}
           initial="initialState"

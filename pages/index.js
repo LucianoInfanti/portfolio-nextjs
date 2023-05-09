@@ -3,7 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
-import ShuffleText from "./shuffletext";
+import ShuffleText from "../components/shuffletext";
 
 export default function Home({ articles }) {
   return (
@@ -35,7 +35,7 @@ export default function Home({ articles }) {
             >
               <ShuffleText text={"LinkedIn"} />
             </a>
-            <span className={styles.span}>,{" "}</span>
+            <span className={styles.span}>, </span>
             <a
               target="blank"
               className="underlineLink"
@@ -43,7 +43,7 @@ export default function Home({ articles }) {
             >
               <ShuffleText text={"Github"} />
             </a>
-            <span className={styles.span}>,{" "}</span>
+            <span className={styles.span}>, </span>
             <a
               target="blank"
               className="underlineLink"
