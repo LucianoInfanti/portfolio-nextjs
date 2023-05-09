@@ -19,9 +19,9 @@ html, body {
   height: 100%;
   font-family: HelveticaNeue;
   font-size: 1rem;
-  background-color: black;
-  color: white;
-  line-height: 26px;
+  background-color: #171717;
+  color: #e5e5e5;
+  line-height: 28px;
 }
 
 body {
@@ -40,6 +40,12 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+
+h1 {
+	font-family: HelveticaNeue;
+  font-size: 1rem;
+}
+
 
 #root, #__next {
   isolation: isolate;
@@ -61,6 +67,11 @@ a {
   color: white;
 }
 
+
+a > span {
+	margin-right: 8px;
+}
+
 li {
   list-style-type: none;
 }
@@ -69,12 +80,23 @@ li {
   display: none;
 }
 
-/* p ~ p {
-  margin-top: 40px;
+p > a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #4D4D4D;
 }
- */
 
-/* 
+p > a:hover {
+  text-decoration-color: white;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+  
+
+ p ~ p {
+  margin-top: 1rem;
+}
+
+ 
 .highlight {
   font-family: 'FiraCode';
   padding-left: 5px;
@@ -84,18 +106,7 @@ li {
   background-color: rgb(221, 221, 221);
 }
 
-.divider {
-  background-color: #ccc;
-  height: 1px;
-  width: 575px;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  margin-left: 4%;
-  ;
-} */
-
-
-/* .spacer {
+ .spacer {
   height: 20vh;
 }
 
@@ -114,11 +125,6 @@ code {
   background-color: #FAFBFF;
 }
 
-
-p a:link {
-	font-family: Migra-Extralight-Italic, serif;
-}
-
 p ~ img {
   margin-top: 40px;
-} */
+} 

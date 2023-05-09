@@ -1,13 +1,9 @@
 import "../styles/global.css";
 import { motion, AnimatePresence } from "framer-motion";
-import Social from "../components/Social/Social";
 
 export default function App({ Component, pageProps, router }) {
   return (
     <>
-      {/* 
-      <Social /> */}
-
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={router.pathname}

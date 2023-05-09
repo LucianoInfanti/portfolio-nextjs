@@ -1,9 +1,8 @@
 import styles from "./index.module.css";
+import Link from "next/link";
 import Head from "next/head";
-
 import client from "../apolloClient";
 import { gql } from "@apollo/client";
-import Link from "next/link";
 
 export default function Home({ articles }) {
   return (
@@ -16,8 +15,8 @@ export default function Home({ articles }) {
         <div className={styles.contentWrapper}>
           <span className={styles.overline}>Luciano Infanti</span>
           <p>
-            Designer and code enthusiast slowly <br></br>struggling to learn
-            code. Currently at{" "}
+            Senior designer and aspiring coder. <br />
+            Currently honing my skills at{" "}
             <a href="https://work.co/" target="blank" className="underlineLink">
               {" "}
               Work & Co
@@ -30,16 +29,25 @@ export default function Home({ articles }) {
           <div className={styles.social}>
             <a
               target="blank"
+              className="underlineLink"
               href="https://www.linkedin.com/in/luciano-infanti/"
             >
               LinkedIn
             </a>
             <span className={styles.span}>, </span>
-            <a target="blank" href="https://github.com/LucianoInfanti">
+            <a
+              target="blank"
+              className="underlineLink"
+              href="https://github.com/LucianoInfanti"
+            >
               GitHub
             </a>
             <span className={styles.span}>, </span>
-            <a target="blank" href="https://savee.it/lucianoinfanti/">
+            <a
+              target="blank"
+              className="underlineLink"
+              href="https://savee.it/lucianoinfanti/"
+            >
               Savee
             </a>
           </div>

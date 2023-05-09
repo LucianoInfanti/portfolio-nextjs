@@ -1,15 +1,14 @@
+import Head from "next/head";
+import styles from "./slug.module.css";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
-import Head from "next/head";
 import { motion } from "framer-motion";
-
-import styles from "./slug.module.css";
+import Link from "next/link";
 
 const client = new GraphQLClient(process.env.VALUE); //Production env
 
-
-// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL); 
+// const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 interface IArticle {
   articles: any;
@@ -38,26 +37,38 @@ interface IArticle {
 export default function Article({ article }: { article: IArticle }) {
   return (
     <>
-      {" "}
       <Head>
         <title>{article.title}</title>
       </Head>
 
-      <div className={styles.contentWrapper}>
-        <article>
-          <div className={styles.title}>
-            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              {article.title}
-            </motion.h1>
-            <div className={styles.date}>Published · {article.date}</div>
+      <div className={styles.bodyWrapper}>
+        <div className={styles.backArrow}>
+          <div className={styles.arrowWrapper}>
+            <Link href="/">
+              <a>
+                <span>⇤</span> Back{" "}
+              </a>
+            </Link>
           </div>
+        </div>
+        <div className={styles.contentWrapper}>
+          <article>
+            <div className={styles.title}>
+              <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                {article.title}
+              </motion.h1>
+              <div className={styles.date}>
+                Published · {article.date.substring(6).replace(/-/g, ".")}
+              </div>
+            </div>
 
-          <motion.div className={styles.paragraph}>
-            <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
-          </motion.div>
-        </article>
+            <motion.div className={styles.paragraph}>
+              <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
+            </motion.div>
+          </article>
+        </div>
+        <div className="spacer"></div>
       </div>
-      <div className="spacer"></div>
     </>
   );
 }

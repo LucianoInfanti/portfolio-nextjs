@@ -1,4 +1,3 @@
-import Social from "../components/Social/Social";
 
 import styles from "./fullwork.module.css";
 
@@ -10,7 +9,6 @@ export default function Fullwork() {
       <Head>
         <title>Luciano Infanti</title>
       </Head>
-      <Social />
       Full work
     </>
   );
