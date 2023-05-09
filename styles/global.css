@@ -51,16 +51,16 @@ h1 {
   isolation: isolate;
 }
 
-.underlineLink{
+.hygraphClass a {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-color: #4D4D4D;
 }
 
-.underlineLink:hover{
+.hygraphClass a:hover{
   text-decoration-color: white;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-}
+} 
 
 a {
   text-decoration: none;
@@ -79,12 +79,12 @@ li {
 ::-webkit-scrollbar {
   display: none;
 }
-
+/* 
 p > a {
   text-decoration: underline;
   text-underline-offset: 4px;
   text-decoration-color: #4D4D4D;
-}
+} */
 
 p > a:hover {
   text-decoration-color: white;
