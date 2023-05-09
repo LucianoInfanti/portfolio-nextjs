@@ -11,7 +11,7 @@ export default function Home({ articles }) {
       <Head>
         <title>Luciano Infanti</title>
       </Head>
-
+    <div className={styles.wip}><p>WIP</p></div>
       <div className={styles.bodyWrapper}>
         <div className={styles.contentWrapper}>
           <span className={styles.overline}>Luciano Infanti</span>
