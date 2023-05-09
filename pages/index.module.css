@@ -53,3 +53,6 @@
 .divider + p {
 	opacity: 0.3;
 }
+.span{
+	margin-left: -4px;
+}

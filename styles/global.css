@@ -93,36 +93,19 @@ p > a:hover {
   
 
  p ~ p {
-  margin-top: 1rem;
-}
-
- 
-.highlight {
-  font-family: 'FiraCode';
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: var(--small);
-  letter-spacing: -1.2px;
-  background-color: rgb(221, 221, 221);
+  margin-top: 1.8rem;
 }
 
  .spacer {
   height: 20vh;
 }
 
-.article-image {
-  position: absolute;
-  right: 30px;
-  top: 0px;
-}
-
 code { 
-  font-size: 17px;
+  font-family: FiraCode;
   padding: 4px;
   border-radius: 6px;
-  border: solid #D0D5E6 1px;
   letter-spacing: -0.5px;
-  background-color: #FAFBFF;
+  background-color: #282828;
 }
 
 p ~ img {

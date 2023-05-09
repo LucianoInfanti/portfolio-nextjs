@@ -5,6 +5,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import { serialize } from "next-mdx-remote/serialize";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import ShuffleText from "./shuffletext";
 
 const client = new GraphQLClient(process.env.VALUE); //Production env
 
@@ -46,7 +47,7 @@ export default function Article({ article }: { article: IArticle }) {
           <div className={styles.arrowWrapper}>
             <Link href="/">
               <a>
-                <span>⇤</span> Back{" "}
+                <span>⇤</span> <ShuffleText text="Back" />
               </a>
             </Link>
           </div>
