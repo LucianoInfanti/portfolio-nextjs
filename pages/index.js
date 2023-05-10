@@ -13,7 +13,7 @@ export default function Home({ articles }) {
       </Head>
     <div className={styles.wip}><p>WIP</p></div>
       <div className={styles.bodyWrapper}>
-        <div className={styles.contentWrapper}>
+        <div style={{stagger:1}} data-animate className={styles.contentWrapper}>
           <span className={styles.overline}>Luciano Infanti</span>
           <p>
             Senior designer and aspiring coder. <br />
@@ -25,7 +25,7 @@ export default function Home({ articles }) {
           </p>
         </div>
 
-        <div className={styles.contentWrapper}>
+        <div  className={styles.contentWrapper}>
           <span className={styles.overline}>Hailing frequencies open</span>
           <div className={styles.social}>
             <a
