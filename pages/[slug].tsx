@@ -7,8 +7,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import ShuffleText from "../components/shuffletext";
 
-const client = new GraphQLClient(process.env.VALUE); //Production env
+// ED: Adicionei esses novos imports
+import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { Context } from '../provider'
 
+
+const client = new GraphQLClient(process.env.VALUE); //Production env
 // const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 interface IArticle {
@@ -36,6 +41,24 @@ interface IArticle {
 }
 
 export default function Article({ article }: { article: IArticle }) {
+
+  const context = useContext(Context)
+  const router = useRouter()
+
+  // Criei esse evento para mudar a rota
+  const handleClick = (event, route) => {
+    event.preventDefault()
+    context.toggleSiteVisibility()
+
+    setTimeout(() => {
+      router.push(route)
+
+      setTimeout(() => {
+        context.toggleSiteVisibility()
+      }, 600)
+    }, 600)
+  }
+
   return (
     <>
       <Head>
@@ -45,11 +68,9 @@ export default function Article({ article }: { article: IArticle }) {
       <div className={styles.bodyWrapper}>
         <div className={styles.backArrow}>
           <div className={styles.arrowWrapper}>
-            <Link href="/">
-              <a>
+              <a onClick={(event) => handleClick(event, '/')}>
                 <span>⇤</span> <ShuffleText text="Back" />
               </a>
-            </Link>
           </div>
         </div>
         <div className={styles.contentWrapper}>
@@ -64,7 +85,9 @@ export default function Article({ article }: { article: IArticle }) {
             </div>
 
             <motion.div className={styles.paragraph}>
-              <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
+              <div>
+                <div dangerouslySetInnerHTML={{ __html: article.content.html }} />
+              </div>
             </motion.div>
           </article>
         </div>

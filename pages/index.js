@@ -1,31 +1,59 @@
-import styles from "./index.module.css";
-import Link from "next/link";
-import Head from "next/head";
-import client from "../apolloClient";
-import { gql } from "@apollo/client";
-import ShuffleText from "../components/shuffletext";
+import styles from './index.module.css'
+import Link from 'next/link'
+import Head from 'next/head'
+import client from '../apolloClient'
+import { gql } from '@apollo/client'
+import ShuffleText from '../components/shuffletext'
+
+// ED: Adicionei esses novos imports
+import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { Context } from '../provider'
 
 export default function Home({ articles }) {
+  const context = useContext(Context)
+  const router = useRouter()
+
+  // Criei esse evento para mudar a rota
+  const handleClick = (event, route) => {
+    event.preventDefault()
+    context.toggleSiteVisibility()
+
+    setTimeout(() => {
+      router.push(route)
+
+      setTimeout(() => {
+        context.toggleSiteVisibility()
+      }, 600)
+    }, 600)
+  }
+
   return (
     <>
       <Head>
         <title>Luciano Infanti</title>
       </Head>
-    <div className={styles.wip}><p>WIP</p></div>
+      <div className={styles.wip}>
+        <p>WIP</p>
+      </div>
       <div className={styles.bodyWrapper}>
-        <div style={{stagger:1}} data-animate className={styles.contentWrapper}>
+        <div
+          style={{ stagger: 1 }}
+          data-animate
+          className={styles.contentWrapper}
+        >
           <span className={styles.overline}>Luciano Infanti</span>
           <p>
             Senior designer and aspiring coder. <br />
-            Currently honing my skills at{" "}
+            Currently honing my skills at{' '}
             <a href="https://work.co/" target="blank" className="underlineLink">
-              {" "}
-              <ShuffleText text={"Work & Co"} />
+              {' '}
+              <ShuffleText text={'Work & Co'} />
             </a>
           </p>
         </div>
 
-        <div  className={styles.contentWrapper}>
+        <div className={styles.contentWrapper}>
           <span className={styles.overline}>Hailing frequencies open</span>
           <div className={styles.social}>
             <a
@@ -33,7 +61,7 @@ export default function Home({ articles }) {
               className="underlineLink"
               href="https://www.linkedin.com/in/luciano-infanti/"
             >
-              <ShuffleText text={"LinkedIn"} />
+              <ShuffleText text={'LinkedIn'} />
             </a>
             <span className={styles.span}>, </span>
             <a
@@ -41,7 +69,7 @@ export default function Home({ articles }) {
               className="underlineLink"
               href="https://github.com/LucianoInfanti"
             >
-              <ShuffleText text={"Github"} />
+              <ShuffleText text={'Github'} />
             </a>
             <span className={styles.span}>, </span>
             <a
@@ -49,7 +77,7 @@ export default function Home({ articles }) {
               className="underlineLink"
               href="https://savee.it/lucianoinfanti/"
             >
-              <ShuffleText text={"Savee"} />
+              <ShuffleText text={'Savee'} />
             </a>
           </div>
         </div>
@@ -60,13 +88,11 @@ export default function Home({ articles }) {
             {articles.map((article, index) => (
               <li key={article.id} className={styles.articleItem}>
                 <div className={styles.articleRow}>
-                  <Link href={`/${article.slug}`}>
-                    <a>
-                      <ShuffleText text={article.title} />
-                    </a>
-                  </Link>
+                  <a onClick={(event) => handleClick(event, article.slug)}>
+                    <ShuffleText text={article.title} />
+                  </a>
                   <div className={styles.divider}></div>
-                  <p>{article.date.substring(6).replace(/-/g, ".")}</p>
+                  <p>{article.date.substring(6).replace(/-/g, '.')}</p>
                 </div>
               </li>
             ))}
@@ -74,7 +100,7 @@ export default function Home({ articles }) {
         </div>
       </div>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
@@ -89,12 +115,12 @@ export async function getStaticProps() {
         }
       }
     `,
-  });
+  })
 
-  const { articles } = data;
+  const { articles } = data
   return {
     props: {
       articles,
     },
-  };
+  }
 }
