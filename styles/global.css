@@ -111,3 +111,7 @@ code {
 p ~ img {
   margin-top: 40px;
 } 
+
+.page-wrapper {
+  transition: opacity .6s ease;
+}
