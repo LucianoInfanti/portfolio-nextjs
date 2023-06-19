@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode="wait">
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
