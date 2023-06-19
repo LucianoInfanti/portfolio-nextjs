@@ -11,9 +11,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Navbar />
       <AnimatePresence exitBeforeEnter>
-        <motion.div key={router.route}>
-          <Component {...pageProps} key={router.route} />
-        </motion.div>
+        <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
     </>
