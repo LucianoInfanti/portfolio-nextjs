@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 // const client = new GraphQLClient(process.env.VALUE); //Production env
-const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
+const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL || "");
 
 interface IArticle {
   articles: any;
@@ -85,9 +85,9 @@ export default function Article({
             className={styles.title}
           >
             {article.title}
-          <motion.span className={styles.date} key="published">
-            Published — {article.date.substring(5).replace(/-/g, "/")}
-          </motion.span>
+            <motion.span className={styles.date} key="published">
+              Published — {article.date.substring(5).replace(/-/g, "/")}
+            </motion.span>
           </motion.h1>
         </motion.div>
         {article?.coverImage && (
@@ -123,9 +123,11 @@ export default function Article({
             <div className={styles.nextArticle}>
               <span className={styles.nextRead}>Next Read</span>
 
-              <Link href={`/writing/${nextArticle.slug}`}>
-                <a>{nextArticle.title}</a>
-              </Link>
+              {nextArticle && (
+                <Link href={`/writing/${nextArticle.slug}`}>
+                  <a>{nextArticle.title}</a>
+                </Link>
+              )}
             </div>
           </div>
         </motion.div>
@@ -135,7 +137,14 @@ export default function Article({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params.slug as string;
+  if (!params || typeof params.slug !== 'string') {
+    return {
+      notFound: true,
+    };
+  }
+
+  const slug = params.slug;
+
   console.log("Slug:", slug); // Debug the slug
 
   const query = gql`
@@ -175,13 +184,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const otherArticles = data.articles.filter(
     (article) => article.slug !== slug
   );
+
   const nextArticle =
     otherArticles[Math.floor(Math.random() * otherArticles.length)];
 
   return {
     props: {
       article: { ...data.article, source },
-      nextArticle,
+      nextArticle: nextArticle || null,
     },
   };
 };
@@ -194,7 +204,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     }
   `;
-  const data: IArticle = await client.request(query);
+  const data: { articles: IArticle[] } = await client.request(query);
   return {
     paths: data.articles.map((post) => ({ params: { slug: post.slug } })),
     fallback: "blocking",
