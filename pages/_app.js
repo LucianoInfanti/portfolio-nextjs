@@ -1,25 +1,21 @@
-import '../styles/global.css'
-import Provider, { Context } from '../provider'
+import "../styles/global.css";
+import Navbar from "../components/Navbar/Navbar";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
+import Footer from "../components/Footer/Footer";
 
-export default function App({ Component, pageProps, router }) {
+export default function App({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
-    <Provider>
-      <Context.Consumer>
-        {(context) => {
-          const { isPageVisible } = context.state
-
-          return (
-            <div
-              className="page-wrapper"
-              style={{
-                opacity: isPageVisible ? '1' : '0',
-              }}
-            >
-              <Component {...pageProps} />
-            </div>
-          )
-        }}
-      </Context.Consumer>
-    </Provider>
-  )
+    <>
+      <Navbar />
+      <AnimatePresence exitBeforeEnter>
+        <motion.div key={router.route}>
+          <Component {...pageProps} key={router.route} />
+        </motion.div>
+      </AnimatePresence>
+      <Footer />
+    </>
+  );
 }

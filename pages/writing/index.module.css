@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overline {
+    padding-bottom: 24px;
+    padding-top: 32px;
+}
+
+.articleItem {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+
+.articleItem {
+    transition: opacity 0.3s ease;
+    color: black;
+}
+
+.itemListItalic {
+    font-style: italic;
+}
+
+.gradient{
+    width:100%;
+    height: 370px;
+    background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    bottom: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+}

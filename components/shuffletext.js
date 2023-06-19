@@ -1,13 +1,26 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 
 const ShuffleText = ({ text }) => {
   const [shuffledText, setShuffledText] = useState(text);
+  const [dimensions, setDimensions] = useState({ width: null, height: null });
   const originalText = useRef(text);
+  const elementRef = useRef(null);
+  const density = "[]:.!?*+/|=-@^~∞∏∝∑≅∮∇Δπδ≡e∫φ∞";
+
+  useLayoutEffect(() => {
+    if (elementRef.current) {
+      const rect = elementRef.current.getBoundingClientRect();
+      setDimensions({ width: rect.width, height: rect.height });
+    }
+  }, []);
 
   const shuffle = (o) => {
     for (let i = o.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [o[i], o[j]] = [o[j], o[i]];
+      if (Math.random() < 0.2) {
+        o[i] = density[Math.floor(Math.random() * density.length)];
+      }
     }
     return o;
   };
@@ -15,9 +28,8 @@ const ShuffleText = ({ text }) => {
   const shuffleText = () => {
     const elementTextArray = originalText.current.split("");
     let randomText;
-
-    const totalDuration = 300; // Total duration of the animation in milliseconds
-    const numberOfIterations = 5; // Number of iterations for the animation
+    const totalDuration = 100;
+    const numberOfIterations = 5;
     const iterationDuration = totalDuration / numberOfIterations;
 
     const repeatShuffle = (times, index) => {
@@ -27,7 +39,7 @@ const ShuffleText = ({ text }) => {
       }
 
       setTimeout(() => {
-        randomText = shuffle(elementTextArray.slice(0)); // Use a copy of the array to prevent modifying the original
+        randomText = shuffle(elementTextArray.slice(0));
         setShuffledText(randomText.join(""));
         index++;
         repeatShuffle(times, index);
@@ -36,17 +48,19 @@ const ShuffleText = ({ text }) => {
     repeatShuffle(numberOfIterations, 0);
   };
 
-  useEffect(() => {
-    originalText.current = text;
-    setShuffledText(text);
-    shuffleText(); // Shuffle the text when the component mounts
-  }, [text]);
-
   return (
-    <span
-      className="shuffle"
+    <span 
+      ref={elementRef}
       onMouseEnter={shuffleText}
-      style={{ cursor: "pointer" }}
+      style={{ 
+        display: 'inline-block', 
+        width: `${dimensions.width}px`, 
+        height: `${dimensions.height}px`, 
+        overflow: 'hidden', 
+        whiteSpace: 'nowrap',
+        lineHeight: '1',
+        verticalAlign: 'middle',
+      }}
     >
       {shuffledText}
     </span>

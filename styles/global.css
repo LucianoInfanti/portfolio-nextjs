@@ -1,13 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&family=Newsreader:ital,wght@0,300;1,300&display=swap');
-
 @font-face {
-  font-family: HelveticaNeue;
-  src: url(/fonts/HelveticaNeue/HelveticaNeueLTStd-It.otf);
-  font-weight: light;
+  font-family: Migra;
+  src: url(/fonts/Migra/Migra-Extralight.ttf);
+  font-weight: 200;
+  font-style: normal;
 }
 
-*, *::before, *::after {
+@font-face {
+  font-family: Migra-Italic;
+  src: url(/fonts/Migra/MigraItalic.ttf);
+  font-weight: 200;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: AGNext;
+  src: url(/fonts/AGNext/AGNextLight.otf);
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: AGNext-Italic;
+  src: url(/fonts/AGNext/AGNextLightIta.otf);
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: AGNext-Medium;
+  src: url(/fonts/AGNext/AGNextMedium.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FiraCode;
+  src: url(/fonts/FiraCode/FiraCode-Regular.ttf);
+  font-weight: 200;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,103 +51,155 @@
   margin: 0;
 }
 
-html, body {
-  height: 100%;
-  font-family: HelveticaNeue;
-  font-size: 1rem;
-  background-color: #171717;
-  color: #e5e5e5;
-  line-height: 28px;
-}
-
 body {
   -webkit-font-smoothing: antialiased;
+  font-family: Migra;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 200;
+
 }
 
-img, picture, video, canvas, svg {
+body::-webkit-scrollbar {
+  display: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
-input, button, textarea, select {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-h1 {
-	font-family: HelveticaNeue;
-  font-size: 1rem;
-}
-
-
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
-}
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  text-rendering: optimizeSpeed;
 
-.hygraphClass a {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: #4D4D4D;
-}
 
-.hygraphClass a:hover{
-  text-decoration-color: white;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-} 
+}
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
-
-a > span {
-	margin-right: 8px;
-}
-
+ol,
+ul,
+ul,
 li {
-  list-style-type: none;
+  list-style: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
+p:not([class])+p:not([class]) {
+  margin-bottom: 40px;
 }
-/* 
-p > a {
+
+p>a {
+  font-family: AGNext-Italic;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  font-size: 18px;
+  text-decoration-color: rgba(0, 0, 0, 0.2);
   text-underline-offset: 4px;
-  text-decoration-color: #4D4D4D;
-} */
-
-p > a:hover {
-  text-decoration-color: white;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-}
-  
-
- p ~ p {
-  margin-top: 1.8rem;
+  ;
 }
 
- .spacer {
-  height: 20vh;
+p>a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+
 }
 
-code { 
+h5,
+h3 {
+  margin-top: 80px;
+  font-family: Migra;
+  font-weight: 200;
+  font-size: 24px;
+}
+
+p+h1,
+p+h2,
+p+h3,
+p+h4,
+p+h5,
+p+h6 {
+  margin-bottom: 24px;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+code {
   font-family: FiraCode;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  font-size: 14px;
+  margin-left: 4px;
+  margin-right: 4px;
   padding: 4px;
-  border-radius: 6px;
-  letter-spacing: -0.5px;
-  background-color: #282828;
 }
 
-p ~ img {
-  margin-top: 40px;
-} 
+strong {
+  font-family: AGNext-Medium;
+  font-weight: 400;
+}
 
-.page-wrapper {
-  transition: opacity .6s ease;
+ol {
+  padding-left: 0px;
+}
+
+li:has([class])+li:has([class]) {
+  margin-bottom: 0px;
+}
+
+li+li {
+  margin-bottom: 32px;
+}
+
+ol li:first-child {
+  margin-bottom: 32px;
+}
+
+blockquote {
+  font-family: AGNext-Italic;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+blockquote::before {
+  content: "'"
+}
+
+blockquote::after {
+  content: "'"
 }
