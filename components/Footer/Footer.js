@@ -13,7 +13,7 @@ const Footer = () => {
     { label: "Read.cv", href: "https://read.cv/lucianoinfanti" },
   ];
   return (
-    <AnimatePresence>
+    <AnimatePresence key="footer">
       {router.pathname === "/" ? (
         <motion.div
           initial={{ y: 60, opacity: 0 }}
@@ -23,7 +23,7 @@ const Footer = () => {
             opacity: 0,
             ease: [0.2, 0.0, 0, 1.0],
 
-            transition: { duration: 0.8 },
+            transition: { duration: 0.6 },
           }}
           transition={{
             duration: 1,

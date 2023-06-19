@@ -1,6 +1,6 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar/Navbar";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import Footer from "../components/Footer/Footer";
 
