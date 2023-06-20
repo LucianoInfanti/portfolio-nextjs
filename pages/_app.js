@@ -17,11 +17,11 @@ export default function App({ Component, pageProps }) {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
-  
+
   return (
     <>
       <Navbar />
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
