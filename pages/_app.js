@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <AnimatePresence mode="sync">
+      <AnimatePresence>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
