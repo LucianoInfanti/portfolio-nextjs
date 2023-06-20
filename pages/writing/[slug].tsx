@@ -45,7 +45,7 @@ export default function Article({
       opacity: 1,
       transition: {
         ease: [0.05, 0.7, 0.1, 1.0],
-        duration: 1.2,
+        duration: 2,
         staggerChildren: 0.5,
       },
     },
@@ -56,7 +56,7 @@ export default function Article({
     visible: {
       y: 0,
       opacity: 1,
-      transition: { ease: [0.05, 0.7, 0.1, 1.0], duration: 1.2 },
+      transition: { ease: [0.05, 0.7, 0.1, 1.0], duration: 2 },
     },
   };
 
@@ -64,11 +64,11 @@ export default function Article({
     <div className={styles.slugWrapper}>
       <div className={styles.gradient}></div>
       <motion.article
-        exit={{
-          opacity: 0,
-          y: 30,
-          transition: { duration: 0.8, ease: [0.3, 0.0, 0.8, 0.15] },
-        }}
+        // exit={{
+        //   opacity: 0,
+        //   y: 30,
+        //   transition: { duration: 0.8, ease: [0.3, 0.0, 0.8, 0.15] },
+        // }}
         key="article"
         className={styles.contentWrapper}
       >

@@ -9,8 +9,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        ease: [0.2, 0.0, 0, 1.0],
-        duration: 1,
+        ease: [0.05, 0.7, 0.1, 1.0],
+        duration: 2,
         staggerChildren: 0.05,
       },
     },
@@ -21,7 +21,7 @@ export default function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { ease: [0.2, 0.0, 0, 1.0], duration: 1 },
+      transition: {  ease: [0.05, 0.7, 0.1, 1.0], duration: 2 },
     },
   };
 
@@ -30,6 +30,7 @@ export default function Home() {
       <div className={styles.Wrapper}>
         <div className={styles.spline}>
           {/* <Circle /> */}
+          {/* <Spline scene="https://prod.spline.design/QFADvQDkQPx3Jchi/scene.splinecode"/> */}
           {/* <Spline scene="https://prod.spline.design/LnYT0SdCfGE5gGiJ/scene.splinecode"/> */}
           {/* <Spline scene="https://prod.spline.design/gamGiLRQy8sw-ymO/scene.splinecode"/> */}
           {/* <Spline scene="https://prod.spline.design/xfleAzYoiHCo6KUI/scene.splinecode"/> */}
@@ -43,28 +44,28 @@ export default function Home() {
         >
           <motion.p
             variants={childVariants}
-            exit={{
-              y: 30,
-              opacity: 0,
-              ease: [0.2, 0.0, 0, 1.0],
-              transition: { duration: 0.6 },
-            }}
+            // exit={{
+            //   y: 30,
+            //   opacity: 0,
+            //   ease: [0.2, 0.0, 0, 1.0],
+            //   transition: { duration: 0.6 },
+            // }}
             key="first"
           >
             Designer and code enthusiast.
           </motion.p>
-          <motion.p
+          <motion.div
             variants={childVariants}
-            exit={{
-              y: 30,
-              opacity: 0,
-              ease: [0.2, 0.0, 0, 1.0],
-              transition: { duration: 0.6 },
-            }}
+            // exit={{
+            //   y: 30,
+            //   opacity: 0,
+            //   ease: [0.2, 0.0, 0, 1.0],
+            //   transition: { duration: 0.6 },
+            // }}
             key="second"
             className={styles.secondRow}
           >
-            Currently at
+            <p>Currently at</p>
             <a
               className={styles.mainContantLink}
               href="https://work.co/"
@@ -72,7 +73,7 @@ export default function Home() {
             >
               <ShuffleText text={"Work & Co"} />
             </a>
-          </motion.p>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>

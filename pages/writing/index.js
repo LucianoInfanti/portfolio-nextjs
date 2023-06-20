@@ -11,18 +11,22 @@ export default function Writing({ articles }) {
 
   const variants = {
     hidden: { y: 60, opacity: 0 },
-    visible: { y: 0, opacity: 1,  transition: {
-      ease: [0.05, 0.7, 0.1, 1.0],
-      duration: 1,
-      staggerChildren: 0.05,
-    }, },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: [0.05, 0.7, 0.1, 1.0],
+        duration: 2,
+        staggerChildren: 0.05,
+      },
+    },
     hover: {
       opacity: 0.3,
-      transition: { duration: 0.3, ease: [0.2, 0.0, 0, 1.0] },
+      transition: { duration: 0.3, ease: [0.05, 0.7, 0.1, 1.0] },
     },
     hoverOut: {
       opacity: 1,
-      transition: { duration: 0.3, ease: [0.2, 0.0, 0, 1.0] },
+      transition: { duration: 0.3, ease: [0.05, 0.7, 0.1, 1.0] },
     },
     exit: {
       y: 30,
@@ -37,7 +41,7 @@ export default function Writing({ articles }) {
       className={styles.wrapper}
       initial="hidden"
       animate="visible"
-      exit="exit"
+      // exit="exit"
     >
       <div className={styles.gradient}></div>
       <div className={styles.contentWrapper}>
@@ -98,7 +102,7 @@ export async function getStaticProps() {
   const { articles } = data;
   return {
     props: {
-      articles
-    }
+      articles,
+    },
   };
 }

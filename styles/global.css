@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+
 @font-face {
   font-family: Migra;
   src: url(/fonts/Migra/Migra-Extralight.ttf);
@@ -57,7 +60,7 @@ body {
   font-size: 18px;
   font-style: normal;
   font-weight: 200;
-
+  background-color: #fafafa;
 }
 
 body::-webkit-scrollbar {
@@ -104,6 +107,11 @@ a {
   color: black;
 }
 
+p:has(:not([class])) {
+  font-size: 20px;
+  line-height: 160%;
+}
+
 ol,
 ul,
 ul,
@@ -113,22 +121,21 @@ li {
 
 p:not([class])+p:not([class]) {
   margin-bottom: 40px;
+  font-family: 'Inter', sans-serif;
 }
 
 p>a {
   font-family: AGNext-Italic;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  font-size: 18px;
+  font-size: 20px;
   text-decoration-color: rgba(0, 0, 0, 0.2);
   text-underline-offset: 4px;
-  ;
 }
 
 p>a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
-
 }
 
 h5,
@@ -156,6 +163,7 @@ h5:first-child,
 h6:first-child {
   margin-top: 0;
   margin-bottom: 24px;
+  
 }
 
 code {
@@ -169,7 +177,7 @@ code {
 }
 
 strong {
-  font-family: AGNext-Medium;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
 

@@ -8,6 +8,7 @@
 .mainContantLink {
     font-size: 48px;
     font-family: Migra-Italic;
+    color: #BA0000;
 }
 
 .mainContent {
@@ -24,21 +25,27 @@
 }
 
 .centeredContent {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: flex;
 }
 
+
+.secondRow {
+    display: flex;
+}
 
 .secondRow>a {
     padding-left: 8px;
+    display: flex;
+    align-items: center;
 }
 
-.spline{
+.spline {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    z-index:-1;
+    z-index: -1;
 }
