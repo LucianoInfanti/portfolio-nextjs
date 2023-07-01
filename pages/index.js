@@ -3,79 +3,12 @@ import ShuffleText from "../components/shuffletext";
 import { motion } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 import Circle from "../components/circle";
-export default function Home() {
-  const parentVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        ease: [0.05, 0.7, 0.1, 1.0],
-        duration: 2,
-        staggerChildren: 0.05,
-      },
-    },
-  };
+import HomeContent from '../components/Content/HomeContent/HomeContent';
 
-  const childVariants = {
-    hidden: { y: 60, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {  ease: [0.05, 0.7, 0.1, 1.0], duration: 2 },
-    },
-  };
+export default function Home() {
+  
 
   return (
-    <motion.div key="indexWrapper">
-      <div className={styles.Wrapper}>
-        <div className={styles.spline}>
-          {/* <Circle /> */}
-          {/* <Spline scene="https://prod.spline.design/QFADvQDkQPx3Jchi/scene.splinecode"/> */}
-          {/* <Spline scene="https://prod.spline.design/LnYT0SdCfGE5gGiJ/scene.splinecode"/> */}
-          {/* <Spline scene="https://prod.spline.design/gamGiLRQy8sw-ymO/scene.splinecode"/> */}
-          {/* <Spline scene="https://prod.spline.design/xfleAzYoiHCo6KUI/scene.splinecode"/> */}
-        </div>
-        <motion.div
-          className={styles.mainContent}
-          variants={parentVariants}
-          initial="hidden"
-          animate="visible"
-          key="mainContent"
-        >
-          <motion.p
-            variants={childVariants}
-            // exit={{
-            //   y: 30,
-            //   opacity: 0,
-            //   ease: [0.2, 0.0, 0, 1.0],
-            //   transition: { duration: 0.6 },
-            // }}
-            key="first"
-          >
-            Designer and code enthusiast.
-          </motion.p>
-          <motion.div
-            variants={childVariants}
-            // exit={{
-            //   y: 30,
-            //   opacity: 0,
-            //   ease: [0.2, 0.0, 0, 1.0],
-            //   transition: { duration: 0.6 },
-            // }}
-            key="second"
-            className={styles.secondRow}
-          >
-            <p>Currently at</p>
-            <a
-              className={styles.mainContantLink}
-              href="https://work.co/"
-              target="_blank"
-            >
-              <ShuffleText text={"Work & Co"} />
-            </a>
-          </motion.div>
-        </motion.div>
-      </div>
-    </motion.div>
+    <><HomeContent/></>
   );
 }

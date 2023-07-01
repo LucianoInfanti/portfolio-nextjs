@@ -28,8 +28,8 @@ const ShuffleText = ({ text }) => {
   const shuffleText = () => {
     const elementTextArray = originalText.current.split("");
     let randomText;
-    const totalDuration = 100;
-    const numberOfIterations = 5;
+    const totalDuration = 320;
+    const numberOfIterations = 8;
     const iterationDuration = totalDuration / numberOfIterations;
 
     const repeatShuffle = (times, index) => {

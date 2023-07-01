@@ -41,7 +41,7 @@ export default function Writing({ articles }) {
       className={styles.wrapper}
       initial="hidden"
       animate="visible"
-      // exit="exit"
+      exit="exit"
     >
       <div className={styles.gradient}></div>
       <div className={styles.contentWrapper}>

@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-
   useEffect(() => {
     const handleRouteChange = () => {
       router.prefetch(router.pathname);
@@ -21,7 +20,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence initial={false} mode="wait">
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />

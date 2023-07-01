@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
-
 @font-face {
   font-family: Migra;
   src: url(/fonts/Migra/Migra-Extralight.ttf);
@@ -60,7 +59,6 @@ body {
   font-size: 18px;
   font-style: normal;
   font-weight: 200;
-  background-color: #fafafa;
 }
 
 body::-webkit-scrollbar {
@@ -174,6 +172,12 @@ code {
   margin-left: 4px;
   margin-right: 4px;
   padding: 4px;
+}
+
+.eae {
+  position: fixed;
+  top: 0;
+  z-index: -1;
 }
 
 strong {

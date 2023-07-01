@@ -85,7 +85,7 @@ const AsciiCircle = () => {
         ref={preRef}
         style={{
           backgroundColor: "white",
-          color: "rgba(0, 0, 0, 0.02)",
+          color: "rgba(0, 0, 0, 0.03)",
 
         }}
       />
